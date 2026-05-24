@@ -7,7 +7,7 @@ import pickle
 # =========================
 
 st.set_page_config(
-    page_title="Prediksi Diabetes AI",
+    page_title="Prediksi Penyakit Diabetes",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
@@ -40,7 +40,7 @@ with left:
 
     st.markdown("""
     <div class="main-title">
-        💙 Prediksi Penyakit<br>
+        Prediksi Penyakit<br>
         <span>Diabetes</span>
     </div>
     """, unsafe_allow_html=True)
@@ -151,7 +151,7 @@ with right:
             </div>
 
             <div class="form-subtitle">
-                Isi data kesehatan pasien untuk memulai prediksi AI.
+                Isi data kesehatan pasien untuk memulai prediksi.
             </div>
 
         </div>
@@ -212,7 +212,7 @@ with right:
 
     hasil_prediksi = "Hasil prediksi akan muncul di sini."
 
-    if st.button("✨ Prediksi Diabetes"):
+    if st.button("Prediksi Diabetes"):
 
         data = np.array([[
             pregnancies,
