@@ -64,8 +64,8 @@ with col_left:
         <div class="warning-box">
             <span style="font-size: 20px; color: #3b82f6;">ℹ️</span>
             <div>
-                <strong>Sistem ini hanya untuk membantu analisis.</strong><br>
-                Bukan pengganti diagnosis dokter.
+                <strong>Sistem ini hanya untuk membantu analisis</strong><br>
+                Bukan pengganti diagnosis dokter
             </div>
         </div>
     """, unsafe_allow_html=True)
