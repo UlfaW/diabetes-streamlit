@@ -7,7 +7,7 @@ import pickle
 # =========================
 
 st.set_page_config(
-    page_title="Prediksi Penyakit Diabetes",
+    page_title="Prediksi Diabetes AI",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
@@ -40,7 +40,7 @@ with left:
 
     st.markdown("""
     <div class="main-title">
-        Prediksi Penyakit<br>
+        💙 Prediksi Penyakit<br>
         <span>Diabetes</span>
     </div>
     """, unsafe_allow_html=True)
@@ -55,10 +55,15 @@ with left:
     col1, col2 = st.columns(2)
 
     with col1:
+
         st.markdown("""
         <div class="card">
             <div class="icon green">📈</div>
-            <div class="card-title">Risiko Diabetes</div>
+
+            <div class="card-title">
+                Risiko Diabetes
+            </div>
+
             <div class="card-text">
                 Hasil prediksi diabetes<br>
                 akan tampil di sini.
@@ -67,10 +72,15 @@ with left:
         """, unsafe_allow_html=True)
 
     with col2:
+
         st.markdown("""
         <div class="card">
             <div class="icon yellow">⚖️</div>
-            <div class="card-title">Analisa BMI</div>
+
+            <div class="card-title">
+                Analisa BMI
+            </div>
+
             <div class="card-text">
                 Analisa BMI pasien<br>
                 akan tampil di sini.
@@ -81,25 +91,33 @@ with left:
     col3, col4 = st.columns(2)
 
     with col3:
+
         st.markdown("""
         <div class="card">
             <div class="icon red">❤️</div>
-            <div class="card-title">Tekanan Darah</div>
+
+            <div class="card-title">
+                Tekanan Darah
+            </div>
+
             <div class="card-text">
-                Monitoring tekanan<br>
-                darah pasien.
+                Monitoring tekanan darah pasien.
             </div>
         </div>
         """, unsafe_allow_html=True)
 
     with col4:
+
         st.markdown("""
         <div class="card">
             <div class="icon blue">💧</div>
-            <div class="card-title">Kadar Gula</div>
+
+            <div class="card-title">
+                Kadar Gula
+            </div>
+
             <div class="card-text">
-                Monitoring kadar gula<br>
-                darah pasien.
+                Monitoring kadar gula darah pasien.
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -127,6 +145,7 @@ with right:
         </div>
 
         <div>
+
             <div class="form-title">
                 Input Data Pasien
             </div>
@@ -134,6 +153,7 @@ with right:
             <div class="form-subtitle">
                 Isi data kesehatan pasien untuk memulai prediksi AI.
             </div>
+
         </div>
 
     </div>
@@ -147,16 +167,48 @@ with right:
     c1, c2 = st.columns(2)
 
     with c1:
-        pregnancies = st.number_input("Pregnancies", min_value=0.0)
-        bloodpressure = st.number_input("Tekanan Darah", min_value=0.0)
-        insulin = st.number_input("Insulin", min_value=0.0)
-        dpf = st.number_input("Diabetes Pedigree Function", min_value=0.0)
+
+        pregnancies = st.number_input(
+            "Pregnancies",
+            min_value=0.0
+        )
+
+        bloodpressure = st.number_input(
+            "Tekanan Darah",
+            min_value=0.0
+        )
+
+        insulin = st.number_input(
+            "Insulin",
+            min_value=0.0
+        )
+
+        dpf = st.number_input(
+            "Diabetes Pedigree Function",
+            min_value=0.0
+        )
 
     with c2:
-        glucose = st.number_input("Kadar Gula Darah", min_value=0.0)
-        skin = st.number_input("Skin Thickness", min_value=0.0)
-        bmi = st.number_input("BMI", min_value=0.0)
-        age = st.number_input("Usia", min_value=0.0)
+
+        glucose = st.number_input(
+            "Kadar Gula Darah",
+            min_value=0.0
+        )
+
+        skin = st.number_input(
+            "Skin Thickness",
+            min_value=0.0
+        )
+
+        bmi = st.number_input(
+            "BMI",
+            min_value=0.0
+        )
+
+        age = st.number_input(
+            "Usia",
+            min_value=0.0
+        )
 
     hasil_prediksi = "Hasil prediksi akan muncul di sini."
 
@@ -190,6 +242,7 @@ with right:
         </div>
 
         <div>
+
             <div class="result-title">
                 Hasil Prediksi
             </div>
@@ -197,6 +250,7 @@ with right:
             <div class="result-text">
                 {hasil_prediksi}
             </div>
+
         </div>
 
     </div>
