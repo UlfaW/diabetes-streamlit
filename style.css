@@ -1,10 +1,10 @@
-body {
-    background: #071c24;
+html, body, [class*="css"]  {
+    font-family: 'Arial', sans-serif;
 }
 
-/* MAIN */
-.main {
-    background: linear-gradient(to right, #071c24, #0c2d3d);
+/* BACKGROUND */
+.stApp {
+    background: linear-gradient(135deg, #071c24, #0c2d3d);
     color: white;
 }
 
@@ -13,7 +13,7 @@ body {
     font-size: 55px;
     font-weight: bold;
     color: white;
-    margin-top: 30px;
+    margin-top: 20px;
 }
 
 .subtitle {
@@ -25,74 +25,78 @@ body {
 /* CARD */
 .card {
     background: rgba(255,255,255,0.08);
+
     border-radius: 25px;
+
     padding: 25px;
+
     color: white;
+
     height: 200px;
+
     margin-bottom: 20px;
 
     box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-    backdrop-filter: blur(6px);
-}
 
-.card h2 {
-    font-size: 28px;
-    margin-top: 10px;
+    backdrop-filter: blur(6px);
+
+    border: 1px solid rgba(255,255,255,0.1);
 }
 
 /* INPUT BOX */
 .input-box {
+
     background: white;
-    padding: 40px;
-    border-radius: 30px;
-    margin-top: 20px;
-}
 
-/* BUTTON */
-.stButton>button {
+    padding: 35px;
 
-    background: linear-gradient(to right, #2563eb, #1d4ed8);
+    border-radius: 25px;
 
-    color: white;
+    color: black;
 
-    border: none;
-
-    border-radius: 12px;
-
-    height: 50px;
-
-    width: 100%;
-
-    font-size: 18px;
-
-    font-weight: bold;
-
-    margin-top: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
 }
 
 /* INPUT */
 .stTextInput input,
 .stNumberInput input {
 
+    background-color: #f3f4f6 !important;
+
+    color: black !important;
+
     border-radius: 12px !important;
+
+    border: none !important;
 }
 
-/* RESULT */
-.result-box {
+/* BUTTON */
+.stButton>button {
 
-    background: rgba(255,255,255,0.1);
+    width: 100%;
 
-    padding: 20px;
+    height: 50px;
 
-    border-radius: 20px;
+    border-radius: 12px;
 
-    margin-top: 20px;
+    border: none;
+
+    background: linear-gradient(to right, #2563eb, #1d4ed8);
 
     color: white;
 
-    text-align: center;
-
-    font-size: 24px;
+    font-size: 18px;
 
     font-weight: bold;
+}
+
+/* RESULT */
+.stSuccess {
+
+    border-radius: 15px;
+}
+
+.stError {
+
+    border-radius: 15px;
 }
