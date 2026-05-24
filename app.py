@@ -8,9 +8,9 @@ import pickle
 
 st.set_page_config(
     page_title="Prediksi Penyakit Diabetes",
-    layout="wide"
+    layout="wide",
+    initial_sidebar_state="collapsed"
 )
-
 # =========================
 # LOAD CSS
 # =========================
@@ -39,7 +39,7 @@ with left:
 
     st.markdown("""
     <div class='title'>
-        💙 Prediksi Diabetes AI
+        💙 Prediksi Penyakit Diabetes 
     </div>
     """, unsafe_allow_html=True)
 
