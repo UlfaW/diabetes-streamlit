@@ -13,27 +13,21 @@ with open("style.css") as f:
 
 # 3. Inisialisasi State (Untuk menyimpan hasil prediksi agar tidak hilang saat di-refresh)
 if "hasil_teks" not in st.session_state:
-    st.session_state.hasil_teks = "Hasil prediksi akan muncul di sini setelah tombol diklik."
+    st.session_state.hasil_teks = "Hasil prediksi akan muncul di sini setelah tombol diklik"
 if "risiko_status" not in st.session_state:
-    st.session_state.risiko_status = "Hasil prediksi diabetes akan tampil di sini."
+    st.session_state.risiko_status = "Hasil prediksi diabetes akan tampil di sini"
 
 # 4. Grid Utama Layar (Kiri: Dashboard, Kanan: Form Input Pasien)
 col_left, col_right = st.columns([1.1, 1], gap="large")
 
 # ==================== SISI KIRI (INFORMASI & DASHBOARD) ====================
 with col_left:
-    st.markdown("""
-        <div style='display: flex; align-items: center; gap: 10px; margin-bottom: -10px;'>
-            <span style='font-size: 35px;'>💙</span>
-        </div>
-    """, unsafe_allow_html=True)
-    
     st.markdown("<h1 style='font-size: 3rem; font-weight: 800; margin-bottom: 0px;'>Prediksi Penyakit</h1>", unsafe_allow_html=True)
     st.markdown("<h1 style='font-size: 3.5rem; font-weight: 800; color: #3b82f6; margin-top: -20px; margin-bottom: 10px;'>Diabetes</h1>", unsafe_allow_html=True)
     
     st.markdown("""
         <p style='color: #94a3b8; font-size: 1.1rem; margin-bottom: 30px;'>
-            Sistem multi-analisa kesehatan pasien berbasis <span style='color: #3b82f6; font-weight: bold;'>Decision Tree</span>.
+            Sistem multi-analisa kesehatan pasien berbasis</span>.
         </p>
     """, unsafe_allow_html=True)
     
@@ -48,7 +42,7 @@ with col_left:
             <div class="dashboard-card">
                 <div class="card-icon" style="background-color: rgba(239, 68, 68, 0.1); color: #ef4444;">❤️</div>
                 <div class="card-title">Tekanan Darah</div>
-                <div class="card-desc">Monitoring tekanan darah pasien.</div>
+                <div class="card-desc">Monitoring tekanan darah pasien</div>
             </div>
         """, unsafe_allow_html=True)
         
@@ -57,12 +51,12 @@ with col_left:
             <div class="dashboard-card">
                 <div class="card-icon" style="background-color: rgba(245, 158, 11, 0.1); color: #f59e0b;">⚖️</div>
                 <div class="card-title">Analisa BMI</div>
-                <div class="card-desc">Analisa BMI pasien akan tampil di sini.</div>
+                <div class="card-desc">Analisa BMI pasien akan tampil di sini</div>
             </div>
             <div class="dashboard-card">
                 <div class="card-icon" style="background-color: rgba(59, 130, 246, 0.1); color: #3b82f6;">💧</div>
                 <div class="card-title">Kadar Gula</div>
-                <div class="card-desc">Monitoring kadar gula darah pasien.</div>
+                <div class="card-desc">Monitoring kadar gula darah pasien</div>
             </div>
         """, unsafe_allow_html=True)
         
@@ -86,7 +80,7 @@ with col_right:
                 <div style="background-color: rgba(59, 130, 246, 0.1); padding: 10px; border-radius: 12px; font-size: 24px;">👤</div>
                 <div>
                     <h2 style="margin: 0; font-size: 1.5rem; font-weight: bold; color: white;">Input Data Pasien</h2>
-                    <p style="margin: 0; color: #94a3b8; font-size: 0.9rem;">Isi data kesehatan pasien untuk memulai prediksi AI.</p>
+                    <p style="margin: 0; color: #94a3b8; font-size: 0.9rem;">Isi data kesehatan pasien</p>
                 </div>
             </div>
         """, unsafe_allow_html=True)
@@ -107,7 +101,7 @@ with col_right:
             usia = st.number_input("Usia", min_value=0, step=1, value=0)
             
         # Tombol Prediksi
-        btn_prediksi = st.button("✨ Prediksi Diabetes")
+        btn_prediksi = st.button("Prediksi Diabetes")
         
         # LOGIKA PEMICU KETIKA TOMBOL DIKLIK
         if btn_prediksi:
@@ -122,10 +116,10 @@ with col_right:
                 
                 # Contoh simulasi logika sederhana:
                 if gula_darah > 140 or bmi > 25.0:
-                    status_prediksi = f"⚠️ Pasien {nama_pasien} terindikasi berisiko tinggi Diabetes."
+                    status_prediksi = f"⚠️ Pasien {nama_pasien} terindikasi berisiko tinggi Diabetes"
                     status_kartu = "🚨 Risiko Tinggi (Positif)"
                 else:
-                    status_prediksi = f"✅ Pasien {nama_pasien} terindikasi normal / risiko rendah."
+                    status_prediksi = f"✅ Pasien {nama_pasien} terindikasi normal / risiko rendah"
                     status_kartu = "🟢 Risiko Rendah (Negatif)"
                 
                 # Simpan hasil perubahan ke dalam session state
