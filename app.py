@@ -23,14 +23,14 @@ with open("style.css") as f:
 # LOAD MODEL
 # =========================
 
-model = pickle.load(open('model_diabetes.pkl', 'rb'))
-scaler = pickle.load(open('scaler.pkl', 'rb'))
+model = pickle.load(open("model_diabetes.pkl", "rb"))
+scaler = pickle.load(open("scaler.pkl", "rb"))
 
 # =========================
 # LAYOUT
 # =========================
 
-left, right = st.columns([1.15, 1])
+left, right = st.columns([1.05, 1])
 
 # =========================
 # LEFT SIDE
@@ -39,73 +39,73 @@ left, right = st.columns([1.15, 1])
 with left:
 
     st.markdown("""
-    <div class='main-title'>
-        💙 Prediksi Penyakit<br>
-        <span class='blue-text'>Diabetes</span>
+    <div class="main-title">
+        Prediksi Penyakit<br>
+        <span>Diabetes</span>
     </div>
     """, unsafe_allow_html=True)
 
     st.markdown("""
-    <div class='subtitle'>
-        Sistem multi-analisa kesehatan pasien berbasis
-        <span class='blue-text'>Decision Tree.</span>
+    <div class="subtitle">
+        Sistem multi-analisa kesehatan pasien<br>
+        berbasis <span>Decision Tree.</span>
     </div>
     """, unsafe_allow_html=True)
 
-    c1, c2 = st.columns(2)
+    col1, col2 = st.columns(2)
 
-    with c1:
-
+    with col1:
         st.markdown("""
-        <div class='card'>
-            <div class='card-icon'>📈</div>
-            <div class='card-title'>Risiko Diabetes</div>
-            <div class='card-text'>
-                Hasil prediksi diabetes akan tampil di sini.
+        <div class="card">
+            <div class="icon green">📈</div>
+            <div class="card-title">Risiko Diabetes</div>
+            <div class="card-text">
+                Hasil prediksi diabetes<br>
+                akan tampil di sini.
             </div>
         </div>
         """, unsafe_allow_html=True)
 
-    with c2:
-
+    with col2:
         st.markdown("""
-        <div class='card'>
-            <div class='card-icon'>⚖️</div>
-            <div class='card-title'>Analisa BMI</div>
-            <div class='card-text'>
-                Analisa BMI pasien akan tampil di sini.
+        <div class="card">
+            <div class="icon yellow">⚖️</div>
+            <div class="card-title">Analisa BMI</div>
+            <div class="card-text">
+                Analisa BMI pasien<br>
+                akan tampil di sini.
             </div>
         </div>
         """, unsafe_allow_html=True)
 
-    c3, c4 = st.columns(2)
+    col3, col4 = st.columns(2)
 
-    with c3:
-
+    with col3:
         st.markdown("""
-        <div class='card'>
-            <div class='card-icon'>❤️</div>
-            <div class='card-title'>Tekanan Darah</div>
-            <div class='card-text'>
-                Monitoring tekanan darah pasien.
+        <div class="card">
+            <div class="icon red">❤️</div>
+            <div class="card-title">Tekanan Darah</div>
+            <div class="card-text">
+                Monitoring tekanan<br>
+                darah pasien.
             </div>
         </div>
         """, unsafe_allow_html=True)
 
-    with c4:
-
+    with col4:
         st.markdown("""
-        <div class='card'>
-            <div class='card-icon'>💧</div>
-            <div class='card-title'>Kadar Gula</div>
-            <div class='card-text'>
-                Monitoring kadar gula darah pasien.
+        <div class="card">
+            <div class="icon blue">💧</div>
+            <div class="card-title">Kadar Gula</div>
+            <div class="card-text">
+                Monitoring kadar gula<br>
+                darah pasien.
             </div>
         </div>
         """, unsafe_allow_html=True)
 
     st.markdown("""
-    <div class='info-box'>
+    <div class="footer-box">
         ℹ️ Sistem ini hanya untuk membantu analisis,
         bukan pengganti diagnosis dokter.
     </div>
@@ -117,35 +117,48 @@ with left:
 
 with right:
 
-    st.markdown("<div class='form-container'>", unsafe_allow_html=True)
+    st.markdown('<div class="form-box">', unsafe_allow_html=True)
 
     st.markdown("""
-    <div class='form-title'>
-        Input Data Pasien
+    <div class="form-header">
+
+        <div class="form-icon">
+            👤
+        </div>
+
+        <div>
+            <div class="form-title">
+                Input Data Pasien
+            </div>
+
+            <div class="form-subtitle">
+                Isi data kesehatan pasien untuk memulai prediksi AI.
+            </div>
+        </div>
+
     </div>
     """, unsafe_allow_html=True)
 
-    st.markdown("""
-    <div class='form-subtitle'>
-        Isi data kesehatan pasien untuk memulai prediksi.
-    </div>
-    """, unsafe_allow_html=True)
+    nama = st.text_input(
+        "Nama Pasien",
+        placeholder="Masukkan nama pasien"
+    )
 
-    nama = st.text_input("Nama Pasien")
+    c1, c2 = st.columns(2)
 
-    col1, col2 = st.columns(2)
-
-    with col1:
+    with c1:
         pregnancies = st.number_input("Pregnancies", min_value=0.0)
         bloodpressure = st.number_input("Tekanan Darah", min_value=0.0)
         insulin = st.number_input("Insulin", min_value=0.0)
         dpf = st.number_input("Diabetes Pedigree Function", min_value=0.0)
 
-    with col2:
+    with c2:
         glucose = st.number_input("Kadar Gula Darah", min_value=0.0)
         skin = st.number_input("Skin Thickness", min_value=0.0)
         bmi = st.number_input("BMI", min_value=0.0)
         age = st.number_input("Usia", min_value=0.0)
+
+    hasil_prediksi = "Hasil prediksi akan muncul di sini."
 
     if st.button("✨ Prediksi Diabetes"):
 
@@ -164,16 +177,29 @@ with right:
 
         hasil = model.predict(data)
 
-        st.markdown("<div class='result-box'>", unsafe_allow_html=True)
-
         if hasil[0] == 1:
-
-            st.error(f"{nama} Terindikasi Diabetes")
-
+            hasil_prediksi = f"{nama} Terindikasi Diabetes"
         else:
+            hasil_prediksi = f"{nama} Tidak Diabetes"
 
-            st.success(f"{nama} Tidak Diabetes")
+    st.markdown(f"""
+    <div class="result-box">
 
-        st.markdown("</div>", unsafe_allow_html=True)
+        <div class="result-icon">
+            ⭕
+        </div>
+
+        <div>
+            <div class="result-title">
+                Hasil Prediksi
+            </div>
+
+            <div class="result-text">
+                {hasil_prediksi}
+            </div>
+        </div>
+
+    </div>
+    """, unsafe_allow_html=True)
 
     st.markdown("</div>", unsafe_allow_html=True)
