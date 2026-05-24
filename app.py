@@ -32,12 +32,12 @@ with col_left:
             <div class="dashboard-card">
                 <div class="card-icon" style="background-color: rgba(16, 185, 129, 0.1); color: #10b981;">📈</div>
                 <div class="card-title">Risiko Diabetes</div>
-                <div class="card-desc">Hasil prediksi diabetes akan tampil di sini.</div>
+                <div class="card-desc">Hasil prediksi diabetes akan tampil di sini</div>
             </div>
             <div class="dashboard-card">
                 <div class="card-icon" style="background-color: rgba(239, 68, 68, 0.1); color: #ef4444;">❤️</div>
                 <div class="card-title">Tekanan Darah</div>
-                <div class="card-desc">Monitoring tekanan darah pasien.</div>
+                <div class="card-desc">Monitoring tekanan darah pasien</div>
             </div>
         """, unsafe_allow_html=True)
         
@@ -46,12 +46,12 @@ with col_left:
             <div class="dashboard-card">
                 <div class="card-icon" style="background-color: rgba(245, 158, 11, 0.1); color: #f59e0b;">⚖️</div>
                 <div class="card-title">Analisa BMI</div>
-                <div class="card-desc">Analisa BMI pasien akan tampil di sini.</div>
+                <div class="card-desc">Analisa BMI pasien akan tampil di sini</div>
             </div>
             <div class="dashboard-card">
                 <div class="card-icon" style="background-color: rgba(59, 130, 246, 0.1); color: #3b82f6;">💧</div>
                 <div class="card-title">Kadar Gula</div>
-                <div class="card-desc">Monitoring kadar gula darah pasien.</div>
+                <div class="card-desc">Monitoring kadar gula darah pasien</div>
             </div>
         """, unsafe_allow_html=True)
         
