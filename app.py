@@ -13,33 +13,28 @@ with open("style.css") as f:
 
 # 3. Inisialisasi State Awal (Jika belum diklik, teks bawaan yang muncul)
 if "risiko_status" not in st.session_state:
-    st.session_state.risiko_status = "Hasil prediksi diabetes akan tampil di sini."
+    st.session_state.risiko_status = "Hasil prediksi diabetes akan tampil di sini"
 if "bmi_status" not in st.session_state:
-    st.session_state.bmi_status = "Analisa BMI pasien akan tampil di sini."
+    st.session_state.bmi_status = "Analisa BMI pasien akan tampil di sini"
 if "tensi_status" not in st.session_state:
-    st.session_state.tensi_status = "Monitoring tekanan darah pasien."
+    st.session_state.tensi_status = "Monitoring tekanan darah pasien"
 if "gula_status" not in st.session_state:
-    st.session_state.gula_status = "Monitoring kadar gula darah pasien."
+    st.session_state.gula_status = "Monitoring kadar gula darah pasien"
 if "hasil_teks" not in st.session_state:
-    st.session_state.hasil_teks = "Hasil analisa lengkap akan muncul di sini setelah tombol diklik."
+    st.session_state.hasil_teks = "Hasil analisa lengkap akan muncul di sini setelah tombol diklik"
 
 # 4. Grid Utama Layar (Kiri: Dashboard, Kanan: Form Input Pasien)
 col_left, col_right = st.columns([1.1, 1], gap="large")
 
 # ==================== SISI KIRI (INFORMASI & DASHBOARD DINAMIS) ====================
 with col_left:
-    st.markdown("""
-        <div style='display: flex; align-items: center; gap: 10px; margin-bottom: -10px;'>
-            <span style='font-size: 35px;'>💙</span>
-        </div>
-    """, unsafe_allow_html=True)
-    
+
     st.markdown("<h1 style='font-size: 3rem; font-weight: 800; margin-bottom: 0px;'>Prediksi Penyakit</h1>", unsafe_allow_html=True)
     st.markdown("<h1 style='font-size: 3.5rem; font-weight: 800; color: #3b82f6; margin-top: -20px; margin-bottom: 10px;'>Diabetes</h1>", unsafe_allow_html=True)
     
     st.markdown("""
         <p style='color: #94a3b8; font-size: 1.1rem; margin-bottom: 30px;'>
-            Sistem multi-analisa kesehatan pasien berbasis <span style='color: #3b82f6; font-weight: bold;'>Decision Tree</span>.
+            Sistem multi-analisa kesehatan pasien</span>.
         </p>
     """, unsafe_allow_html=True)
     
@@ -77,8 +72,8 @@ with col_left:
         <div class="warning-box">
             <span style="font-size: 20px; color: #3b82f6;">ℹ️</span>
             <div>
-                <strong>Sistem ini hanya untuk membantu analisis.</strong><br>
-                Bukan pengganti diagnosis dokter.
+                <strong>Sistem ini hanya untuk membantu analisis</strong><br>
+                Bukan pengganti diagnosis dokter
             </div>
         </div>
     """, unsafe_allow_html=True)
@@ -93,7 +88,7 @@ with col_right:
                 <div style="background-color: rgba(59, 130, 246, 0.1); padding: 10px; border-radius: 12px; font-size: 24px;">👤</div>
                 <div>
                     <h2 style="margin: 0; font-size: 1.5rem; font-weight: bold; color: white;">Input Data Pasien</h2>
-                    <p style="margin: 0; color: #94a3b8; font-size: 0.9rem;">Isi data kesehatan pasien untuk memulai prediksi AI.</p>
+                    <p style="margin: 0; color: #94a3b8; font-size: 0.9rem;">Isi data kesehatan pasien</p>
                 </div>
             </div>
         """, unsafe_allow_html=True)
@@ -113,7 +108,7 @@ with col_right:
             bmi = st.number_input("BMI", min_value=0.0, step=0.1, value=0.0)
             usia = st.number_input("Usia", min_value=0, step=1, value=0)
             
-        btn_prediksi = st.button("✨ Prediksi Diabetes")
+        btn_prediksi = st.button("Prediksi Diabetes")
         
         # LOGIKA PROSES ANALISA SAAT TOMBOL DIKLIK
         if btn_prediksi:
@@ -133,34 +128,34 @@ with col_right:
                 if bmi == 0:
                     st.session_state.bmi_status = "Data BMI kosong."
                 elif bmi < 18.5:
-                    st.session_state.bmi_status = f"BMI {bmi:.1f}: Berat Badan Kurang (Underweight)."
+                    st.session_state.bmi_status = f"BMI {bmi:.1f}: Berat Badan Kurang (Underweight)"
                 elif 18.5 <= bmi < 25.0:
-                    st.session_state.bmi_status = f"BMI {bmi:.1f}: Normal / Ideal."
+                    st.session_state.bmi_status = f"BMI {bmi:.1f}: Normal / Ideal"
                 else:
-                    st.session_state.bmi_status = f"BMI {bmi:.1f}: Obesitas / Kelebihan Berat Badan."
+                    st.session_state.bmi_status = f"BMI {bmi:.1f}: Obesitas / Kelebihan Berat Badan"
                     
                 # 3. LOGIKA ANALISA TEKANAN DARAH DINAMIS
                 if tekanan_darah == 0:
                     st.session_state.tensi_status = "Data tekanan darah kosong."
                 elif tekanan_darah < 80:
-                    st.session_state.tensi_status = f"Tensi {tekanan_darah:.0f} mmHg: Tekanan Darah Rendah (Hipotensi)."
+                    st.session_state.tensi_status = f"Tensi {tekanan_darah:.0f} mmHg: Tekanan Darah Rendah (Hipotensi)"
                 elif 80 <= tekanan_darah <= 120:
-                    st.session_state.tensi_status = f"Tensi {tekanan_darah:.0f} mmHg: Normal."
+                    st.session_state.tensi_status = f"Tensi {tekanan_darah:.0f} mmHg: Normal"
                 else:
-                    st.session_state.tensi_status = f"Tensi {tekanan_darah:.0f} mmHg: Tekanan Darah Tinggi (Hipertensi)."
+                    st.session_state.tensi_status = f"Tensi {tekanan_darah:.0f} mmHg: Tekanan Darah Tinggi (Hipertensi)"
                     
                 # 4. LOGIKA ANALISA KADAR GULA DARAH DINAMIS
                 if gula_darah == 0:
-                    st.session_state.gula_status = "Data kadar gula kosong."
+                    st.session_state.gula_status = "Data kadar gula kosong"
                 elif gula_darah < 100:
-                    st.session_state.gula_status = f"Gula {gula_darah:.0f} mg/dL: Normal (Puasa)."
+                    st.session_state.gula_status = f"Gula {gula_darah:.0f} mg/dL: Normal (Puasa)"
                 elif 100 <= gula_darah <= 140:
-                    st.session_state.gula_status = f"Gula {gula_darah:.0f} mg/dL: Prediabetes."
+                    st.session_state.gula_status = f"Gula {gula_darah:.0f} mg/dL: Prediabetes"
                 else:
-                    st.session_state.gula_status = f"Gula {gula_darah:.0f} mg/dL: Sangat Tinggi (Diabetes)."
+                    st.session_state.gula_status = f"Gula {gula_darah:.0f} mg/dL: Sangat Tinggi (Diabetes)"
                 
                 # 5. KOTAK INFORMASI RINGKASAN DI BAWAH
-                st.session_state.hasil_teks = f"Analisis AI selesai untuk pasien <b>{nama_pasien}</b>. Status kesehatan menunjukkan indikasi <b>{status_akhir}</b> terhadap diabetes berdasarkan parameter input."
+                st.session_state.hasil_teks = f"Analisis selesai untuk pasien <b>{nama_pasien}</b>. Status kesehatan menunjukkan indikasi <b>{status_akhir}</b> terhadap diabetes berdasarkan parameter input"
                 
                 # Memuat ulang halaman agar data langsung muncul seketika di semua kartu
                 st.rerun()
