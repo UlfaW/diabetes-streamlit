@@ -1,6 +1,6 @@
 import streamlit as st
 
-# 1. Konfigurasi Halaman (Harus ditaruh paling atas)
+# 1. Konfigurasi Halaman
 st.set_page_config(
     page_title="Prediksi Penyakit Diabetes",
     layout="wide",
@@ -11,12 +11,11 @@ st.set_page_config(
 with open("style.css") as f:
     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
-# 3. Pembagian Layout Utama (Kiri: Info & Dashboard, Kanan: Form Input)
+# 3. Pembagian Layout Utama
 col_left, col_right = st.columns([1.1, 1], gap="large")
 
 # ==================== SISI KIRI (INFORMASI & DASHBOARD) ====================
 with col_left:
-    # Header utama
     st.markdown("""
         <div style='display: flex; align-items: center; gap: 10px; margin-bottom: -10px;'>
             <span style='font-size: 35px;'>💙</span>
@@ -32,9 +31,7 @@ with col_left:
         </p>
     """, unsafe_allow_html=True)
     
-    # Grid internal untuk 4 buah Card Monitoring 
     card_col1, card_col2 = st.columns(2)
-    
     with card_col1:
         st.markdown("""
             <div class="dashboard-card">
@@ -63,7 +60,6 @@ with col_left:
             </div>
         """, unsafe_allow_html=True)
         
-    # Catatan Disclaimer di bagian bawah kiri
     st.markdown("""
         <div class="warning-box">
             <span style="font-size: 20px; color: #3b82f6;">ℹ️</span>
@@ -75,26 +71,24 @@ with col_left:
     """, unsafe_allow_html=True)
 
 
-# ==================== SISI KANAN (FORM INPUT PASIEN) ====================
+# ==================== SISI KANAN (FORM INPUT PASIEN - PERBAIKAN) ====================
 with col_right:
-    # Pembungkus div agar mendapatkan background putih dari CSS
-    st.markdown('<div class="form-container">', unsafe_allow_html=True)
+    # Menggunakan container khusus berbentuk card gelap (.form-card)
+    st.markdown('<div class="form-card">', unsafe_allow_html=True)
     
-    # Header Form
     st.markdown("""
         <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
-            <div style="background-color: #eff6ff; padding: 10px; border-radius: 12px; font-size: 24px;">👤</div>
+            <div style="background-color: rgba(59, 130, 246, 0.1); padding: 10px; border-radius: 12px; font-size: 24px;">👤</div>
             <div>
-                <h2 style="margin: 0; font-size: 1.5rem; font-weight: bold;">Input Data Pasien</h2>
-                <p style="margin: 0; color: #64748b; font-size: 0.9rem;">Isi data kesehatan pasien untuk memulai prediksi AI.</p>
+                <h2 style="margin: 0; font-size: 1.5rem; font-weight: bold; color: white;">Input Data Pasien</h2>
+                <p style="margin: 0; color: #94a3b8; font-size: 0.9rem;">Isi data kesehatan pasien untuk memulai prediksi AI.</p>
             </div>
         </div>
     """, unsafe_allow_html=True)
     
-    # Input Nama Pasien
+    # Elemen input form
     nama_pasien = st.text_input("Nama Pasien", placeholder="Masukkan nama pasien")
     
-    # Form Input Angka terbagi menjadi 2 kolom per barisnya
     f_col1, f_col2 = st.columns(2)
     with f_col1:
         pregnancies = st.number_input("Pregnancies", min_value=0, step=1, value=0)
@@ -108,16 +102,12 @@ with col_right:
         bmi = st.number_input("BMI", min_value=0.0, step=0.1, value=0.0)
         usia = st.number_input("Usia", min_value=0, step=1, value=0)
         
-    st.markdown("<br>", unsafe_allow_html=True)
-    
-    # Tombol Aksi Prediksi
     btn_prediksi = st.button("✨ Prediksi Diabetes")
     
-    # Tempat Menampilkan Hasil Prediksi
     st.markdown("""
         <div class="result-box">
-            <div style="font-weight: bold; color: #2563eb; font-size: 1.05rem;">Hasil Prediksi</div>
-            <div style="color: #64748b; font-size: 0.9rem; margin-top: 2px;">Hasil prediksi akan muncul di sini.</div>
+            <div style="font-weight: bold; color: #3b82f6; font-size: 1.05rem;">Hasil Prediksi</div>
+            <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 2px;">Hasil prediksi akan muncul di sini.</div>
         </div>
     """, unsafe_allow_html=True)
     
