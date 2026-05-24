@@ -1,83 +1,184 @@
-html, body, [class*="css"]  {
-    font-family: 'Arial', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+html, body, [class*="css"] {
+    font-family: 'Poppins', sans-serif;
 }
 
 /* BACKGROUND */
 .stApp {
-    background: linear-gradient(135deg, #071c24, #0c2d3d);
+    background: linear-gradient(135deg, #031421, #07273a, #04111d);
     color: white;
+}
+
+/* HIDE STREAMLIT */
+#MainMenu {
+    visibility: hidden;
+}
+
+footer {
+    visibility: hidden;
+}
+
+header {
+    visibility: hidden;
 }
 
 /* TITLE */
-.title {
-    font-size: 55px;
-    font-weight: bold;
+.main-title {
+
+    font-size: 72px;
+
+    font-weight: 700;
+
+    line-height: 1.1;
+
     color: white;
-    margin-top: 20px;
+
+    margin-top: 30px;
+}
+
+.blue-text {
+
+    color: #2d8cff;
 }
 
 .subtitle {
-    color: #d1d5db;
-    font-size: 18px;
-    margin-bottom: 30px;
+
+    color: #cbd5e1;
+
+    font-size: 22px;
+
+    margin-top: 20px;
+
+    margin-bottom: 40px;
+
+    line-height: 1.7;
 }
 
 /* CARD */
 .card {
-    background: rgba(255,255,255,0.08);
 
-    border-radius: 25px;
+    background: rgba(255,255,255,0.06);
 
-    padding: 25px;
+    border-radius: 28px;
 
-    color: white;
+    padding: 30px;
 
-    height: 200px;
+    height: 230px;
 
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 
-    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.08);
 
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(10px);
 
-    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+
+    transition: 0.3s;
 }
 
-/* INPUT BOX */
-.input-box {
+.card:hover {
+
+    transform: translateY(-5px);
+}
+
+.card-icon {
+
+    font-size: 55px;
+
+    margin-bottom: 20px;
+}
+
+.card-title {
+
+    font-size: 38px;
+
+    font-weight: 600;
+
+    margin-bottom: 15px;
+
+    color: white;
+}
+
+.card-text {
+
+    font-size: 18px;
+
+    color: #dbe4ee;
+
+    line-height: 1.7;
+}
+
+/* RIGHT PANEL */
+.form-container {
 
     background: white;
 
-    padding: 35px;
+    border-radius: 35px;
 
-    border-radius: 25px;
+    padding: 45px;
 
-    color: black;
+    margin-top: 10px;
 
-    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+}
+
+/* FORM TITLE */
+.form-title {
+
+    color: #071c24;
+
+    font-size: 52px;
+
+    font-weight: 700;
+
+    margin-bottom: 10px;
+}
+
+.form-subtitle {
+
+    color: #64748b;
+
+    font-size: 18px;
+
+    margin-bottom: 35px;
 }
 
 /* INPUT */
 .stTextInput input,
 .stNumberInput input {
 
-    background-color: #f3f4f6 !important;
+    background: #f8fafc !important;
 
     color: black !important;
 
-    border-radius: 12px !important;
+    border-radius: 16px !important;
 
-    border: none !important;
+    height: 55px;
+
+    border: 2px solid #e2e8f0 !important;
+
+    font-size: 16px;
+}
+
+/* LABEL */
+label {
+
+    color: #071c24 !important;
+
+    font-weight: 600 !important;
+
+    font-size: 16px !important;
 }
 
 /* BUTTON */
-.stButton>button {
+.stButton > button {
 
     width: 100%;
 
-    height: 50px;
+    height: 60px;
 
-    border-radius: 12px;
+    border-radius: 18px;
 
     border: none;
 
@@ -85,18 +186,50 @@ html, body, [class*="css"]  {
 
     color: white;
 
-    font-size: 18px;
+    font-size: 22px;
 
-    font-weight: bold;
+    font-weight: 600;
+
+    margin-top: 20px;
+
+    transition: 0.3s;
+}
+
+.stButton > button:hover {
+
+    transform: scale(1.02);
+
+    background: linear-gradient(to right, #1d4ed8, #2563eb);
 }
 
 /* RESULT */
-.stSuccess {
+.result-box {
 
-    border-radius: 15px;
+    background: #eff6ff;
+
+    border-left: 6px solid #2563eb;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    margin-top: 30px;
 }
 
-.stError {
+/* INFO BOX */
+.info-box {
 
-    border-radius: 15px;
+    background: rgba(0,140,255,0.08);
+
+    border: 1px solid rgba(45,140,255,0.2);
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    margin-top: 20px;
+
+    color: white;
+
+    font-size: 18px;
 }
