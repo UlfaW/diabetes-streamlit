@@ -5,7 +5,7 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Memperbaiki st.container agar menjadi kartu gelap */
+/* Memperbaiki st.container agar menjadi kartu gelap simetris */
 div[data-testid="stContainerBorderBlock"] {
     background: linear-gradient(135deg, #0b1e36 0%, #0d2547 100%) !important;
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
@@ -36,7 +36,7 @@ div[data-testid="stContainerBorderBlock"] {
     color: #94a3b8;
 }
 
-/* Icon styling */
+/* Icon styling didalam card */
 .card-icon {
     font-size: 24px;
     width: 45px;
@@ -61,11 +61,23 @@ div[data-testid="stContainerBorderBlock"] {
     margin-top: 20px;
 }
 
-/* Mengubah warna teks input & tombol pemilih angka agar kontras */
+/* Mengubah warna latar belakang kolom input agar kontras */
 .stTextInput input, .stNumberInput input {
     background-color: #0d2547 !important;
     color: #ffffff !important;
     border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* REVISI: Memaksa semua teks label judul input (termasuk Nama Pasien) menjadi warna putih */
+label[data-testid="stWidgetLabel"] p {
+    color: #ffffff !important;
+    font-weight: 500 !important;
+}
+
+/* Memastikan teks placeholder di dalam kolom berwarna abu terang */
+.stTextInput input::placeholder {
+    color: #94a3b8 !important;
+    opacity: 1;
 }
 
 /* Kustomisasi Tombol Prediksi */
