@@ -11,6 +11,7 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="collapsed"
 )
+
 # =========================
 # LOAD CSS
 # =========================
@@ -29,7 +30,7 @@ scaler = pickle.load(open('scaler.pkl', 'rb'))
 # LAYOUT
 # =========================
 
-left, right = st.columns([1.2, 1])
+left, right = st.columns([1.15, 1])
 
 # =========================
 # LEFT SIDE
@@ -38,14 +39,16 @@ left, right = st.columns([1.2, 1])
 with left:
 
     st.markdown("""
-    <div class='title'>
-        💙 Prediksi Penyakit Diabetes 
+    <div class='main-title'>
+        💙 Prediksi Penyakit<br>
+        <span class='blue-text'>Diabetes</span>
     </div>
     """, unsafe_allow_html=True)
 
     st.markdown("""
     <div class='subtitle'>
-        Sistem multi-analisa kesehatan pasien berbasis Desicion Tree.
+        Sistem multi-analisa kesehatan pasien berbasis
+        <span class='blue-text'>Decision Tree.</span>
     </div>
     """, unsafe_allow_html=True)
 
@@ -55,9 +58,11 @@ with left:
 
         st.markdown("""
         <div class='card'>
-            <h1>📈</h1>
-            <h2>Risiko Diabetes</h2>
-            <p>Hasil prediksi diabetes akan tampil di sini.</p>
+            <div class='card-icon'>📈</div>
+            <div class='card-title'>Risiko Diabetes</div>
+            <div class='card-text'>
+                Hasil prediksi diabetes akan tampil di sini.
+            </div>
         </div>
         """, unsafe_allow_html=True)
 
@@ -65,9 +70,11 @@ with left:
 
         st.markdown("""
         <div class='card'>
-            <h1>⚖️</h1>
-            <h2>Analisa BMI</h2>
-            <p>Analisa BMI pasien akan tampil di sini.</p>
+            <div class='card-icon'>⚖️</div>
+            <div class='card-title'>Analisa BMI</div>
+            <div class='card-text'>
+                Analisa BMI pasien akan tampil di sini.
+            </div>
         </div>
         """, unsafe_allow_html=True)
 
@@ -77,9 +84,11 @@ with left:
 
         st.markdown("""
         <div class='card'>
-            <h1>❤️</h1>
-            <h2>Tekanan Darah</h2>
-            <p>Monitoring tekanan darah pasien.</p>
+            <div class='card-icon'>❤️</div>
+            <div class='card-title'>Tekanan Darah</div>
+            <div class='card-text'>
+                Monitoring tekanan darah pasien.
+            </div>
         </div>
         """, unsafe_allow_html=True)
 
@@ -87,11 +96,20 @@ with left:
 
         st.markdown("""
         <div class='card'>
-            <h1>💧</h1>
-            <h2>Kadar Gula</h2>
-            <p>Monitoring kadar gula darah pasien.</p>
+            <div class='card-icon'>💧</div>
+            <div class='card-title'>Kadar Gula</div>
+            <div class='card-text'>
+                Monitoring kadar gula darah pasien.
+            </div>
         </div>
         """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <div class='info-box'>
+        ℹ️ Sistem ini hanya untuk membantu analisis,
+        bukan pengganti diagnosis dokter.
+    </div>
+    """, unsafe_allow_html=True)
 
 # =========================
 # RIGHT SIDE
@@ -99,22 +117,37 @@ with left:
 
 with right:
 
-    st.markdown("<div class='input-box'>", unsafe_allow_html=True)
+    st.markdown("<div class='form-container'>", unsafe_allow_html=True)
 
-    st.title("Input Data Pasien")
+    st.markdown("""
+    <div class='form-title'>
+        Input Data Pasien
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.markdown("""
+    <div class='form-subtitle'>
+        Isi data kesehatan pasien untuk memulai prediksi.
+    </div>
+    """, unsafe_allow_html=True)
 
     nama = st.text_input("Nama Pasien")
 
-    pregnancies = st.number_input("Pregnancies")
-    glucose = st.number_input("Kadar Gula Darah")
-    bloodpressure = st.number_input("Tekanan Darah")
-    skin = st.number_input("Skin Thickness")
-    insulin = st.number_input("Insulin")
-    bmi = st.number_input("BMI")
-    dpf = st.number_input("Diabetes Pedigree Function")
-    age = st.number_input("Usia")
+    col1, col2 = st.columns(2)
 
-    if st.button("Prediksi Penyakit Diabetes"):
+    with col1:
+        pregnancies = st.number_input("Pregnancies", min_value=0.0)
+        bloodpressure = st.number_input("Tekanan Darah", min_value=0.0)
+        insulin = st.number_input("Insulin", min_value=0.0)
+        dpf = st.number_input("Diabetes Pedigree Function", min_value=0.0)
+
+    with col2:
+        glucose = st.number_input("Kadar Gula Darah", min_value=0.0)
+        skin = st.number_input("Skin Thickness", min_value=0.0)
+        bmi = st.number_input("BMI", min_value=0.0)
+        age = st.number_input("Usia", min_value=0.0)
+
+    if st.button("✨ Prediksi Diabetes"):
 
         data = np.array([[
             pregnancies,
@@ -131,6 +164,8 @@ with right:
 
         hasil = model.predict(data)
 
+        st.markdown("<div class='result-box'>", unsafe_allow_html=True)
+
         if hasil[0] == 1:
 
             st.error(f"{nama} Terindikasi Diabetes")
@@ -138,5 +173,7 @@ with right:
         else:
 
             st.success(f"{nama} Tidak Diabetes")
+
+        st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown("</div>", unsafe_allow_html=True)
