@@ -104,4 +104,5 @@ div.stButton > button:hover {
     border-radius: 8px;
     padding: 15px;
     margin-top: 20px;
+    color: #ffffff !important; /* Memastikan font hasil berwarna putih */
 }
